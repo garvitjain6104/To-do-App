@@ -16,11 +16,17 @@ document.addEventListener('DOMContentLoaded', () => {
 // ... The rest of your code (fetchTasks, addTask, etc.) stays exactly the same below ...
 
 async function fetchTasks() {
-    const res = await fetch(API_URL);
-    const tasks = await res.json();
-    const list = document.getElementById('taskList');
-    list.innerHTML = ''; // Clear current list
-    tasks.forEach(task => renderTask(task));
+    try {
+        const res = await fetch(API_URL);
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        
+        const tasks = await res.json();
+        const list = document.getElementById('taskList');
+        list.innerHTML = ''; 
+        tasks.forEach(task => renderTask(task));
+    } catch (error) {
+        console.error("Connection failed:", error);
+    }
 }
 
 async function addTask() {
@@ -109,4 +115,5 @@ function handleEnter(e, element) {
     }
 
 }
+
 
