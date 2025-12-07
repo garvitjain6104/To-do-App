@@ -1,4 +1,4 @@
-const API_URL = 'https://to-do-app-yx2r.onrender.com';
+const API_URL = 'https://to-do-app-yx2r.onrender.com/tasks';
 
 // Initialize app when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -109,3 +109,4 @@ function handleEnter(e, element) {
     }
 
 }
+
