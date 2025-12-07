@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/tasks';
+const API_URL = 'https://to-do-app-yx2r.onrender.com';
 
 // Initialize app when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -107,4 +107,5 @@ function handleEnter(e, element) {
         e.preventDefault(); // Stop new line creation
         element.blur(); // Triggers the onblur event defined above
     }
+
 }
