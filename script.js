@@ -47,7 +47,11 @@ async function addTask() {
 }
 
 async function toggleTask(id) {
-    await fetch(`${API_URL}/${id}`, { method: 'PUT' });
+    await fetch(`${API_URL}/${id}`, { 
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({}) // Sending empty JSON triggers the toggle logic on server
+    });
     fetchTasks(); // Refresh list to show updated state
 }
 
@@ -115,5 +119,6 @@ function handleEnter(e, element) {
     }
 
 }
+
 
 
